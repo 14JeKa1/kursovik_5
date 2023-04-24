@@ -14,7 +14,7 @@ heroes = {
 }
 
 # TODO инициализируем класс арены
-arena = Arena
+arena = Arena()
 
 @app.route("/")
 def menu_page():

@@ -34,9 +34,9 @@ class Arena(metaclass=BaseSingleton):
         if self.player.hp > 0 and self.enemy.hp > 0:
             return None
 
-        elif self.player.hp <= 0 and self.enemy <= 0:
+        elif self.player.hp <= 0 and self.enemy.hp <= 0:
             self.battle_result = 'Ничья'
-        elif self.player <= 0:
+        elif self.player.hp <= 0:
             self.battle_result = 'Противник победил'
         else:
             self.battle_result = 'Игрок победил'
@@ -86,7 +86,7 @@ class Arena(metaclass=BaseSingleton):
         # TODO получаем результат от функции self.player.hit
         # TODO запускаем следующий ход
         # TODO возвращаем результат удара строкой
-        result = self.player_hit(self.enemy)
+        result = self.player.hit(self.player)
         turn_result = self.next_turn()
         return f'{result}<br>{turn_result}'
 
